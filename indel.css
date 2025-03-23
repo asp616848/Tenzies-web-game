@@ -5,10 +5,24 @@
 body {
     margin: 0;
     background-color: #0B2434;
-    font-family: 'Inter', sans-serif;
-    color: #fff;
+    padding: 20px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+div#root {
+    height: 100%;
+    width: 100%;
+    max-height: 400px;
+    max-width: 400px;
 }
 
 main {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #F5F5F5;
+    height: 100%;
+    border-radius: 5px;
+    
 }
