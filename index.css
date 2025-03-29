@@ -49,9 +49,28 @@ main {
   font-weight: bold;
   cursor: pointer;
 }
-main.button{
-  margin: 166;
-  align-self: center;
-  width: 320;
-  height: 320;
+.dice-button {
+  background-color: #5035FF;
+  white-space: nowrap;
+  width: auto;
+  padding: 6px 21px;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  margin-top: 20px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.dice-button:hover {
+  background-color: #2712ad;
+  transform: scale(1.05);
+}
+
+.dice-button:active {
+  background-color: #180c65;
+  transform: scale(0.95);
 }
