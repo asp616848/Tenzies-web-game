@@ -1,10 +1,21 @@
 import Die from "./Die"
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { nanoid } from "nanoid"
 import Confetti from "react-confetti"
 
 
 export default function App() {
+    const[ diceValues, setDice] = React.useState(()=>retNewArr());
+    let allHeld = diceValues.isHeld.every(held => held === true);
+    let allEqual = diceValues.arr.every(val => val === diceValues.arr[0]);
+    const gameWon = allHeld && allEqual;
+
+    const btn = React.useRef(null);
+
+    useEffect(()=>
+    {
+        btn.current.focus()
+    }, [gameWon])
 
     function retNewArr(){
         console.log("newArr fn called")
@@ -16,10 +27,7 @@ export default function App() {
     }
 
     
-    const[ diceValues, setDice] = React.useState(()=>retNewArr());
-    let allHeld = diceValues.isHeld.every(held => held === true);
-    let allEqual = diceValues.arr.every(val => val === diceValues.arr[0]);
-    const gameWon = allHeld && allEqual;
+    
 
     if (gameWon) {
         console.log("Game Won");
@@ -73,7 +81,7 @@ export default function App() {
                     value={val} />;  // Return JSX properly
             })}
         </div>
-        <button className="dice-button" onClick={() => gameWon ? setDice(retNewArr()) : onRoll()} name="Roll">
+        <button ref={btn} className="dice-button" onClick={() => gameWon ? setDice(retNewArr()) : onRoll()} name="Roll">
             {gameWon ? "New Game" : "Roll"}
         </button>
 
